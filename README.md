@@ -4,6 +4,9 @@
 
 A [Flarum](http://flarum.org) extension. Widget that shows last users post
 
+![asdf](https://user-images.githubusercontent.com/79002016/131895941-2f9bd3e1-308f-4487-b7f6-f29a1597f7a9.png)
+
+
 ## Installation
 
 Install with composer:
@@ -16,12 +19,10 @@ composer require justoverclock/last-users-posts:"*"
 
 ```sh
 composer update justoverclock/last-users-posts:"*"
-php flarum migrate
 php flarum cache:clear
 ```
 
 ## Links
 
 - [Packagist](https://packagist.org/packages/justoverclock/last-users-posts)
-- [GitHub](https://github.com/justoverclock/last-users-posts)
-- [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)
+- [GitHub](https://github.com/justoverclockl/last-users-posts)
