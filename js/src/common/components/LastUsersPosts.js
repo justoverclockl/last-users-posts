@@ -1,4 +1,5 @@
 /*
+ * This file is part of Last users posts extension.
  *
  * Copyright (c) 2021 Marco Colia.
  * https://flarum.it
@@ -25,11 +26,12 @@ export default class EventsWidget extends Widget {
         const nowDate = new Date().toISOString().slice(0, 10);
         console.log(nowDate);
         // get events object
+        const limitPost = app.forum.attribute('justoverclock-last-users-posts.postLimit') || 10;
         const lastpwidget = app.store
             .find('posts', {
                 isApproved: true,
                 sort: '-createdAt',
-                page: { limit: 10 },
+                page: { limit: limitPost },
             })
             .then((results) => {
                 this.post = results;
@@ -61,9 +63,9 @@ export default class EventsWidget extends Widget {
             <div className="last-posts-content">
                 <ul className="lastpostwidget fa-ul">
                     {this.post.map((post) => (
-                        <p class="lastpostwdg">
+                        <p class="lastpostwdg"><i class="fas fa-user-edit postwdgicon"></i>
                             {truncate(post.content(), 80, 0)}
-                            <hr class="sepdotted"/>
+                            {/*<hr class="sepdotted"/>*/}
                         </p>
                     ))}
                 </ul>

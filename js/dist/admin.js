@@ -91,7 +91,7 @@ module.exports =
 /*!******************!*\
   !*** ./admin.js ***!
   \******************/
-/*! no static exports found */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -154,10 +154,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var flarum_admin_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flarum/admin/app */ "flarum/admin/app");
 /* harmony import */ var flarum_admin_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(flarum_admin_app__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_registerWidget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/registerWidget */ "./src/common/registerWidget.js");
+/*
+ * This file is part of Last users posts extension.
+ *
+ * Copyright (c) 2021 Marco Colia.
+ * https://flarum.it
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
 
 
 flarum_admin_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializers.add('justoverclock/last-users-posts', function () {
   Object(_common_registerWidget__WEBPACK_IMPORTED_MODULE_1__["default"])(flarum_admin_app__WEBPACK_IMPORTED_MODULE_0___default.a);
+  flarum_admin_app__WEBPACK_IMPORTED_MODULE_0___default.a.extensionData["for"]('justoverclock-last-users-posts').registerSetting({
+    setting: 'justoverclock-last-users-posts.postLimit',
+    name: 'justoverclock-last-users-posts.postLimit',
+    type: 'number',
+    label: flarum_admin_app__WEBPACK_IMPORTED_MODULE_0___default.a.translator.trans('justoverclock-last-users-posts.admin.limit'),
+    help: flarum_admin_app__WEBPACK_IMPORTED_MODULE_0___default.a.translator.trans('justoverclock-last-users-posts.admin.limit-help')
+  });
 });
 
 /***/ }),
@@ -186,6 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /*
+ * This file is part of Last users posts extension.
  *
  * Copyright (c) 2021 Marco Colia.
  * https://flarum.it
@@ -221,11 +238,12 @@ var EventsWidget = /*#__PURE__*/function (_Widget) {
     var nowDate = new Date().toISOString().slice(0, 10);
     console.log(nowDate); // get events object
 
+    var limitPost = flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.forum.attribute('justoverclock-last-users-posts.postLimit') || 10;
     var lastpwidget = flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.store.find('posts', {
       isApproved: true,
       sort: '-createdAt',
       page: {
-        limit: 10
+        limit: limitPost
       }
     }).then(function (results) {
       _this.post = results;
@@ -261,9 +279,9 @@ var EventsWidget = /*#__PURE__*/function (_Widget) {
     }, this.post.map(function (post) {
       return m("p", {
         "class": "lastpostwdg"
-      }, Object(flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_5__["truncate"])(post.content(), 80, 0), m("hr", {
-        "class": "sepdotted"
-      }));
+      }, m("i", {
+        "class": "fas fa-user-edit postwdgicon"
+      }), Object(flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_5__["truncate"])(post.content(), 80, 0));
     })));
   };
 

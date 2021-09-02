@@ -1,5 +1,6 @@
 justoverclock-last-users-posts:
   admin:
-    my_cool_key: My Cool Key
+    limit: Post Limit (default is 10 if you leave empty)
+    limit-help: write here the number of posts that you want to be displayed
   forum:
     widget-title: Last Posts
