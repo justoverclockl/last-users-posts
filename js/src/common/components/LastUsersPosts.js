@@ -11,7 +11,7 @@
 import Widget from 'flarum/extensions/afrux-forum-widgets-core/common/components/Widget';
 import app from 'flarum/forum/app';
 import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
-import Separator from 'flarum/common/components/Separator';
+// import Separator from 'flarum/common/components/Separator';
 import { truncate } from 'flarum/common/utils/string';
 
 /*  global m */
@@ -23,10 +23,9 @@ export default class EventsWidget extends Widget {
     }
 
     oncreate(vnode) {
-        const nowDate = new Date().toISOString().slice(0, 10);
-        console.log(nowDate);
-        // get events object
+      // settings to limit post number on frontend
         const limitPost = app.forum.attribute('justoverclock-last-users-posts.postLimit') || 10;
+      // get events object
         const lastpwidget = app.store
             .find('posts', {
                 isApproved: true,
@@ -35,13 +34,14 @@ export default class EventsWidget extends Widget {
             })
             .then((results) => {
                 this.post = results;
-                console.log(results);
+                // console.log(results); <---debug line
                 this.loading = false;
                 m.redraw();
             });
     }
 
     className() {
+         // css class for the container
         return 'lastposts-widget';
     }
 
@@ -65,7 +65,6 @@ export default class EventsWidget extends Widget {
                     {this.post.map((post) => (
                         <p class="lastpostwdg"><i class="fas fa-user-edit postwdgicon"></i>
                             {truncate(post.content(), 80, 0)}
-                            {/*<hr class="sepdotted"/>*/}
                         </p>
                     ))}
                 </ul>

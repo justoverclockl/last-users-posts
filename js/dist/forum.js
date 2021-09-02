@@ -159,10 +159,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_app__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var flarum_common_components_LoadingIndicator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! flarum/common/components/LoadingIndicator */ "flarum/common/components/LoadingIndicator");
 /* harmony import */ var flarum_common_components_LoadingIndicator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(flarum_common_components_LoadingIndicator__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var flarum_common_components_Separator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! flarum/common/components/Separator */ "flarum/common/components/Separator");
-/* harmony import */ var flarum_common_components_Separator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(flarum_common_components_Separator__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! flarum/common/utils/string */ "flarum/common/utils/string");
-/* harmony import */ var flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! flarum/common/utils/string */ "flarum/common/utils/string");
+/* harmony import */ var flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_4__);
 
 
 /*
@@ -176,7 +174,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
+ // import Separator from 'flarum/common/components/Separator';
 
 
 /*  global m */
@@ -199,10 +197,9 @@ var EventsWidget = /*#__PURE__*/function (_Widget) {
   _proto.oncreate = function oncreate(vnode) {
     var _this = this;
 
-    var nowDate = new Date().toISOString().slice(0, 10);
-    console.log(nowDate); // get events object
+    // settings to limit post number on frontend
+    var limitPost = flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.forum.attribute('justoverclock-last-users-posts.postLimit') || 10; // get events object
 
-    var limitPost = flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.forum.attribute('justoverclock-last-users-posts.postLimit') || 10;
     var lastpwidget = flarum_forum_app__WEBPACK_IMPORTED_MODULE_2___default.a.store.find('posts', {
       isApproved: true,
       sort: '-createdAt',
@@ -210,14 +207,15 @@ var EventsWidget = /*#__PURE__*/function (_Widget) {
         limit: limitPost
       }
     }).then(function (results) {
-      _this.post = results;
-      console.log(results);
+      _this.post = results; // console.log(results); <---debug line
+
       _this.loading = false;
       m.redraw();
     });
   };
 
   _proto.className = function className() {
+    // css class for the container
     return 'lastposts-widget';
   };
 
@@ -245,7 +243,7 @@ var EventsWidget = /*#__PURE__*/function (_Widget) {
         "class": "lastpostwdg"
       }, m("i", {
         "class": "fas fa-user-edit postwdgicon"
-      }), Object(flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_5__["truncate"])(post.content(), 80, 0));
+      }), Object(flarum_common_utils_string__WEBPACK_IMPORTED_MODULE_4__["truncate"])(post.content(), 80, 0));
     })));
   };
 
@@ -320,17 +318,6 @@ flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializers.add('justov
 /***/ (function(module, exports) {
 
 module.exports = flarum.core.compat['common/components/LoadingIndicator'];
-
-/***/ }),
-
-/***/ "flarum/common/components/Separator":
-/*!********************************************************************!*\
-  !*** external "flarum.core.compat['common/components/Separator']" ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = flarum.core.compat['common/components/Separator'];
 
 /***/ }),
 
