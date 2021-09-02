@@ -1,0 +1,42 @@
+{
+    "name": "justoverclock/last-users-posts",
+    "description": "Widget that shows last users post",
+    "keywords": [
+        "last users posts",
+        "widget",
+        "afrux"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.0.0",
+        "afrux/forum-widgets-core": "^0.1.0"
+    },
+    "require-dev": {
+        "flarum/testing": "^1.0.0"
+    },
+    "authors": [
+        {
+            "name": "Marco Colia",
+            "email": "info@flarum.it",
+            "role": "Developer",
+            "homepage": "https://flarum.it"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Justoverclock\\LastUsersPosts\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Last Users Posts",
+            "category": "",
+            "icon": {
+                "name": "fas fa-edit",
+                "backgroundColor": "green",
+                "color": "white"
+            }
+        }
+    }
+}
