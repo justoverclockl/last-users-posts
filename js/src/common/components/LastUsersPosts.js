@@ -14,8 +14,6 @@ import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
 // import Separator from 'flarum/common/components/Separator';
 import { truncate } from 'flarum/common/utils/string';
 
-/*  global m */
-
 export default class EventsWidget extends Widget {
     oninit(vnode) {
         super.oninit(vnode);
@@ -59,12 +57,13 @@ export default class EventsWidget extends Widget {
         if (this.loading) {
             return <LoadingIndicator />;
         }
+        const Charlength = app.forum.attribute('justoverclock-last-users-posts.CharLength') || 80;
         return (
             <div className="last-posts-content">
                 <ul className="lastpostwidget fa-ul">
                     {this.post.map((post) => (
                         <p class="lastpostwdg"><i class="fas fa-user-edit postwdgicon"></i>
-                            {truncate(post.content(), 80, 0)}
+                            {truncate(post.content(), Charlength, 0)}
                         </p>
                     ))}
                 </ul>
