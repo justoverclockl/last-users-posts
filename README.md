@@ -1,6 +1,6 @@
 # Last Users Posts
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/justoverclock/last-users-posts.svg)](https://packagist.org/packages/justoverclock/last-users-posts) [![Total Downloads](https://img.shields.io/packagist/dt/justoverclock/last-users-posts.svg)](https://packagist.org/packages/justoverclock/last-users-posts)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://poser.pugx.org/justoverclock/last-users-posts/v)](https://packagist.org/packages/justoverclock/last-users-posts) [![Total Downloads](https://poser.pugx.org/justoverclock/last-users-posts/downloads)](https://packagist.org/packages/justoverclock/last-users-posts)
 
 A [Flarum](http://flarum.org) extension. Widget that shows last users post
 
