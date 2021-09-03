@@ -4,8 +4,9 @@
 
 A [Flarum](http://flarum.org) extension. Widget that shows last users post
 
-![asdf](https://user-images.githubusercontent.com/79002016/131895941-2f9bd3e1-308f-4487-b7f6-f29a1597f7a9.png)
+![fghhhhhhhhhh](https://user-images.githubusercontent.com/79002016/131965451-bf1c5227-6767-46ac-a171-b810052d9d80.png)
 
+![vvvvv](https://user-images.githubusercontent.com/79002016/131965458-8a962122-4db6-434f-b0c4-33221c4370e3.png)
 
 ## Installation
 
