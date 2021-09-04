@@ -12,6 +12,7 @@ import Widget from 'flarum/extensions/afrux-forum-widgets-core/common/components
 import app from 'flarum/forum/app';
 import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
 import { truncate } from 'flarum/common/utils/string';
+import Separator from "flarum/common/components/Separator";
 
 export default class EventsWidget extends Widget {
   oninit(vnode) {
@@ -64,9 +65,10 @@ export default class EventsWidget extends Widget {
         <ul className="lastpostwidget fa-ul">
           {this.post.map((post) => {
             return (
-              <p class="lastpostwdg"><i class="fas fa-user-edit postwdgicon"></i>
+              <li class="lastpostwdg"><i class="fas fa-user-edit postwdgicon"></i>
                 {truncate(post.contentHtml().replace(/<\/?[^>]+(>|$)/g, ""), Charlength, 0)}
-              </p>
+                {Separator.component()}
+              </li>
             );
           })}
         </ul>
