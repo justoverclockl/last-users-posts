@@ -14,19 +14,19 @@ import registerWidget from '../common/registerWidget';
 app.initializers.add('justoverclock/last-users-posts', () => {
     registerWidget(app);
     app.extensionData
-      .for('justoverclock-last-users-posts')
-      .registerSetting({
-        setting: 'justoverclock-last-users-posts.postLimit',
-        name: 'justoverclock-last-users-posts.postLimit',
-        type: 'number',
-        label: app.translator.trans('justoverclock-last-users-posts.admin.limit'),
-        help: app.translator.trans('justoverclock-last-users-posts.admin.limit-help'),
-      })
-      .registerSetting({
-        setting: 'justoverclock-last-users-posts.CharLength',
-        name: 'justoverclock-last-users-posts.CharLength',
-        type: 'number',
-        label: app.translator.trans('justoverclock-last-users-posts.admin.charlength'),
-        help: app.translator.trans('justoverclock-last-users-posts.admin.charlength-help'),
-      })
+        .for('justoverclock-last-users-posts')
+        .registerSetting({
+            setting: 'justoverclock-last-users-posts.postLimit',
+            name: 'justoverclock-last-users-posts.postLimit',
+            type: 'number',
+            label: app.translator.trans('justoverclock-last-users-posts.admin.limit'),
+            help: app.translator.trans('justoverclock-last-users-posts.admin.limit-help'),
+        })
+        .registerSetting({
+            setting: 'justoverclock-last-users-posts.CharLength',
+            name: 'justoverclock-last-users-posts.CharLength',
+            type: 'number',
+            label: app.translator.trans('justoverclock-last-users-posts.admin.charlength'),
+            help: app.translator.trans('justoverclock-last-users-posts.admin.charlength-help'),
+        });
 });
