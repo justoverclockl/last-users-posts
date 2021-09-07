@@ -67,7 +67,9 @@ export default class EventsWidget extends Widget {
                         return (
                             <li class="lastpostwdg">
                                 <i class="fas fa-user-edit postwdgicon"></i>
-                                {truncate(post.contentHtml().replace(/<\/?[^>]+(>|$)/g, ''), Charlength, 0)}
+                                <a href={app.route.post(post)} class="postlinkwg">
+                                    {truncate(post.contentHtml().replace(/<\/?[^>]+(>|$)/g, ''), Charlength, 0)}
+                                </a>
                                 {Separator.component()}
                             </li>
                         );
