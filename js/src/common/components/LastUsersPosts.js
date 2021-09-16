@@ -13,6 +13,7 @@ import app from 'flarum/forum/app';
 import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
 import { truncate } from 'flarum/common/utils/string';
 import Separator from 'flarum/common/components/Separator';
+import Link from "flarum/common/components/Link";
 
 export default class EventsWidget extends Widget {
     oninit(vnode) {
@@ -34,7 +35,6 @@ export default class EventsWidget extends Widget {
             })
             .then((results) => {
                 this.post = results;
-                // console.log(results); <---debug line
                 this.loading = false;
                 m.redraw();
             });
@@ -67,9 +67,9 @@ export default class EventsWidget extends Widget {
                         return (
                             <li class="lastpostwdg">
                                 <i class="fas fa-user-edit postwdgicon"></i>
-                                <a href={app.route.post(post)} class="postlinkwg">
+                                <Link href={app.route.post(post)} className="postlinkwg">
                                     {truncate(post.contentHtml().replace(/<\/?[^>]+(>|$)/g, ''), Charlength, 0)}
-                                </a>
+                                </Link>
                                 {Separator.component()}
                             </li>
                         );
