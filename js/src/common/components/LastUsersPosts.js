@@ -14,6 +14,7 @@ import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
 import { truncate } from 'flarum/common/utils/string';
 import Link from "flarum/common/components/Link";
 import avatar from "flarum/common/helpers/avatar";
+import Tooltip from 'flarum/common/components/Tooltip';
 
 export default class EventsWidget extends Widget {
   oninit(vnode) {
@@ -65,7 +66,7 @@ export default class EventsWidget extends Widget {
           {this.post.map((post) => {
             return (
               <li class="lastpostwdg">
-                <div class="postAvatarWdg">{avatar(post.user())}</div>
+                <div class="postAvatarWdg"><Tooltip text={post.user().displayName()}>{avatar(post.user())}</Tooltip></div>
                 <Link href={app.route.post(post)} className="postlinkwg">
                   {truncate(post.contentHtml().replace(/<\/?[^>]+(>|$)/g, ''), Charlength, 0)}
                 </Link>
