@@ -66,9 +66,11 @@ export default class EventsWidget extends Widget {
           {this.post.map((post) => {
             return (
               <li class="lastpostwdg">
+                {console.log(post)}
                 <div class="postAvatarWdg"><Tooltip text={post.user().displayName()}>{avatar(post.user())}</Tooltip></div>
-                <Link href={app.route.post(post)} className="postlinkwg">
-                  {truncate(post.contentHtml().replace(/<\/?[^>]+(>|$)/g, '').replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g, '📷'), Charlength, 0)}
+                <Link href={app.route.post(post)} className="postlinkwg" id="testa">
+                  {truncate(post.contentHtml().slice(3)
+                    .replace(/(<\/?[^>]+(>|$))+/g, '📷'), Charlength, 0)}
                 </Link>
               </li>
             );
