@@ -64,16 +64,20 @@ export default class EventsWidget extends Widget {
       <div className="last-posts-content">
         <ul className="lastpostwidget fa-ul">
           {this.post.map((post) => {
+          if (!post.isHidden()) {
             return (
               <li class="lastpostwdg">
-                <div class="postAvatarWdg"><Tooltip text={post.user().displayName()}>{avatar(post.user())}</Tooltip></div>
+                <div class="postAvatarWdg"><Tooltip text={post.user().displayName()}>{avatar(post.user())}</Tooltip>
+                </div>
                 <Link href={app.route.post(post)} className="postlinkwg">
-                  {truncate(post.contentHtml().slice(3)
-                    .replace(/(<\/?[^>]+(>|$))+/g, ''), Charlength, 0)}
+                  {truncate(post.contentHtml()
+                    .replace(/<img.*?src="(.*?)"[^\>]+>/g, '📸 ')
+                    .replace(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/g, `🔗 `)
+                    .replace(/( |<([^>]+)>)+/g, ' '), Charlength, 0)}
                 </Link>
               </li>
             );
-          })}
+          }})}
         </ul>
       </div>
     );
