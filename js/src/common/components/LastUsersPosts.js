@@ -71,6 +71,7 @@ export default class EventsWidget extends Widget {
                 </div>
                 <Link href={app.route.post(post)} className="postlinkwg">
                   {truncate(post.contentHtml()
+                    .replace(/(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))/g, 'ᴇᴍʙᴇᴅ ')
                     .replace(/<img.*?src="(.*?)"[^\>]+>/g, '📸 ')
                     .replace(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/g, `🔗 `)
                     .replace(/( |<([^>]+)>)+/g, ' '), Charlength, 0)}
