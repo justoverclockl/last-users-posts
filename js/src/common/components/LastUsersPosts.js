@@ -24,7 +24,7 @@ export default class EventsWidget extends Widget {
 
   oncreate(vnode) {
     // settings to limit post number on frontend
-    const limitPost = app.forum.attribute('justoverclock-last-users-posts.postLimit') || 10;
+    const limitPost = app.forum.attribute('justoverclock-last-users-posts.postLimitNumber') || 10;
     // get posts json
     const lastpwidget = app.store
       .find('posts', {

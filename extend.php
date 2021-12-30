@@ -23,6 +23,6 @@ return [
         ->css(__DIR__.'/less/admin.less'),
     new Extend\Locales(__DIR__.'/locale'),
     (new Extend\Settings)
-        ->serializeToForum('justoverclock-last-users-posts.postLimit', 'justoverclock-last-users-posts.postLimit')
+        ->serializeToForum('justoverclock-last-users-posts.postLimitNumber', 'justoverclock-last-users-posts.postLimitNumber')
         ->serializeToForum('justoverclock-last-users-posts.CharLength', 'justoverclock-last-users-posts.CharLength')
 ];

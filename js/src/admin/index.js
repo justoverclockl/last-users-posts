@@ -16,8 +16,8 @@ app.initializers.add('justoverclock/last-users-posts', () => {
     app.extensionData
         .for('justoverclock-last-users-posts')
         .registerSetting({
-            setting: 'justoverclock-last-users-posts.postLimit',
-            name: 'justoverclock-last-users-posts.postLimit',
+            setting: 'justoverclock-last-users-posts.postLimitNumber',
+            name: 'justoverclock-last-users-posts.postLimitNumber',
             type: 'number',
             label: app.translator.trans('justoverclock-last-users-posts.admin.limit'),
             help: app.translator.trans('justoverclock-last-users-posts.admin.limit-help'),
