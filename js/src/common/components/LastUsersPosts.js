@@ -73,7 +73,7 @@ export default class EventsWidget extends Widget {
                   {truncate(post.contentHtml()
                     .replace(/(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))/g, 'ᴇᴍʙᴇᴅ ')
                     .replace(/<img.*?src="(.*?)"[^\>]+>/g, '📸 ')
-                    .replace(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/g, `🔗 `)
+                    .replace(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/g, `🔗 `)
                     .replace(/( |<([^>]+)>)+/g, ' '), Charlength, 0)}
                 </Link>
               </li>
